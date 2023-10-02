@@ -4,6 +4,11 @@ Open source, vanilla JavaScript calendar API with options to customize and tailo
 ## Project Goals:
 Currently all goals and progress tracking will be done through the github [issues](https://github.com/ctrachte/Kitchen-Calendar/issues) feature. Checkout the [project board](https://github.com/users/ctrachte/projects/2) as well for detailed progress updates.
 
+<!-- DEPENDENCIES -->
+## Dependencies:
+- The goal of this project is to have only one dependency for date/time conversions
+- The project needs to be as lightweight as possible, we have chosen to rely on [dayjs](day.js.org)
+- If you are contributing, please do not introduce any additional dependencies.
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -13,9 +18,8 @@ Currently all goals and progress tracking will be done through the github [issue
 ```
 git clone https://github.com/ctrachte/KitchenCalendar.js
 ```
-2. Open `KitchenCalendar.html` in your browser of choice to view and test behavior.
-3. Place the KitchenCalendar.js and moment.js files in the appropriate directory in your project *(for many, that will be your bundled JS helpers or packages directory)*.
-4. Adjust the options as necessary for your needs, be sure to supply the KitchenCalendar options with the appropriate container HTML element node.
+2. Using VSCode's live server, open `index.html` in your browser of choice to view and test behavior.
+3. Adjust the options as necessary for your needs, be sure to supply the KitchenCalendar options with the appropriate container HTML element node.
 
 ### Using NPM (React, Next.js)
 1. Install the npm package:
