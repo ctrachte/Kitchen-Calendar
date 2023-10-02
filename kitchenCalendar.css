@@ -6,14 +6,14 @@
     background: #222;
   }
   
-  .module-border-wrap {
+  .calendar-border-wrap {
     max-width: 250px;
     padding: 1rem;
     position: relative;
     background: linear-gradient(to right, red, purple);
     padding: 3px;
   }
-  .module {
+  .calendar {
     background: #222;
     color: white;
     padding: 2rem;

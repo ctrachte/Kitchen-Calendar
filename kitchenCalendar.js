@@ -1,9 +1,13 @@
 class KitchenCalendar {
   constructor(options) {
     this.container = options.containerElement || document.createElement("div");
+    this.initialize()
   }
-  // THIS METHOD REQUIRED TO MAKE YOUR APP FUNCTION
-  async initialize() {}
+  async initialize() {
+    // testing dayjs
+    document.querySelector('.calendar').innerHTML = "this month has " + 
+    dayjs(new Date()).daysInMonth() + "days";
+  }
   drawCalendar() {}
   reset() {}
   refresh() {}

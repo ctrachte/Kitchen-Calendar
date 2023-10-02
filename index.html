@@ -17,15 +17,18 @@
 
 <body>
     <div class="CalendarContainer">
-        <div class="module-border-wrap">
-            <div class="module">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero pariatur corporis quaerat voluptatum eos
-                tempora temporibus nisi voluptates sed, exercitationem sequi dolore culpa incidunt accusamus, quasi unde
-                reprehenderit ea molestias.
+        <div class="calendar-border-wrap">
+            <div class="calendar">
+
             </div>
         </div>
     </div>
 </body>
-<script>document.querySelector('.module').innerHTML = "this month has " + dayjs(new Date()).daysInMonth() + "days"</script>
+<script>
+    const calendar = new KitchenCalendar({
+        containerElement: document.querySelector('.calendar'),
+        data:[]
+    });
+</script>
 
 </html>
