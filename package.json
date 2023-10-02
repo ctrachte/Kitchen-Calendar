@@ -1,0 +1,26 @@
+{
+  "name": "kitchen-calendar",
+  "version": "1.0.0",
+  "description": "Open source, vanilla JavaScript calendar API with options to customize and tailor to any use case or framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctrachte/Kitchen-Calendar.git"
+  },
+  "keywords": [
+    "calendar",
+    "full",
+    "calendar",
+    "moment",
+    "api"
+  ],
+  "author": "Caleb Trachte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ctrachte/Kitchen-Calendar/issues"
+  },
+  "homepage": "https://github.com/ctrachte/Kitchen-Calendar#readme"
+}
