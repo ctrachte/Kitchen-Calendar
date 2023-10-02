@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <!-- Draggable windows works best with Tailwind, but does not require it. Be sure to use your own custom stylesheet if you remove Tailwind.  -->
     <!-- <script src="/content/js/kitchen-windows/util/supabase.js"></script> -->
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Kitchen Calendar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/util/dayjs.js"></script>
     <script src="/kitchenCalendar.js"></script>
     <link rel="stylesheet" href="/kitchenCalendar.css" />
-  </head>
+</head>
 
-  <body>
-    <div class="calendarContainer" style="width: 100%;"></div>
-  </body>
+<body>
+</body>
+<script>
+    const calendar = new KitchenCalendar({
+        containerElement: document.querySelector('body'),
+        data:[]
+    });
+</script>
+
 </html>
