@@ -4,11 +4,13 @@ class KitchenCalendar {
       options.containerElement || document.createElement("div");
     this.containerElement.classList.add("KitchenCalendarContainer");
     this.date = dayjs(new Date());
+    this.data = options.data;
     this.reset();
     this.initialize();
   }
   async initialize() {
     // testing dayjs
+    this.data = await this.data;
     this.container = document.createElement("div");
     this.container.classList.add("daysContainer");
     this.header = `

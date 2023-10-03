@@ -19,7 +19,7 @@ var ALARM = "VALARM";
 var keyMap = (_keyMap = {}, _defineProperty(_keyMap, START_DATE, "startDate"), _defineProperty(_keyMap, END_DATE, "endDate"), _defineProperty(_keyMap, DESCRIPTION, "description"), _defineProperty(_keyMap, SUMMARY, "summary"), _defineProperty(_keyMap, LOCATION, "location"), _keyMap);
 
 var clean = function clean(string) {
-  return unescape(string).trim();
+  return decodeURI(string).trim();
 };
 
 var icsToJson = function icsToJson(icsData) {
