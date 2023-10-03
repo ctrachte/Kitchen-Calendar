@@ -7,13 +7,14 @@
 .CalendarHeader {
     margin: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: stretch;
     background: #222;
-    display: flex;
+    display: grid;
     padding: 1rem;
     width: 100%;
     color: white;
     border-radius: 5px 5px 0px 0px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .daysContainer {
@@ -30,8 +31,9 @@
 }
 
 .CalendarHeader > h1 {
-    align-items: center;
+    text-align: center;
 }
+
 svg:hover {
     cursor: pointer;
 }
