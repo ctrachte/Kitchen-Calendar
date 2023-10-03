@@ -15,16 +15,36 @@ class KitchenCalendar {
     this.container.classList.add("daysContainer");
     this.header = `
       <div class="CalendarHeader">
-        <h1>
-        <span class="monthDecrease">
-        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><path d="m4.5 8.5-4-4 4-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(7 6)"/></svg>
-        </span>
-        ${this.month}
-        - 
-        ${this.year}
-        <span class="monthIncrease">
-        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><path d="m.5 8.5 4-4-4-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(9 6)"/></svg>
-        </span>
+        <h1 class="monthDecrease">
+          <svg height="21" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.69 252.51">
+            <defs>
+              <style>
+                .cls-1 {
+                  stroke-width: 0px;
+                  fill: white;
+                }
+              </style>
+            </defs>
+            <path class="cls-1" d="m29.44,158.53l91.98,91.98c2.67,2.67,7.01,2.67,9.68,0l22.59-22.59c2.67-2.67,2.67-7.01,0-9.68l-87.14-87.14c-2.67-2.67-2.67-7.01,0-9.68l87.14-87.14c2.67-2.67,2.67-7.01,0-9.68l-22.59-22.59c-2.67-2.67-7.01-2.67-9.68,0L29.44,93.98,2.01,121.41c-2.67,2.67-2.67,7.01,0,9.68l27.43,27.43ZM131.1,24.6h0c2.67,2.67,2.67,7.01,0,9.68L43.96,121.41c-2.67,2.67-2.67,7.01,0,9.68l87.14,87.14c2.67,2.67,2.67,7.01,0,9.68h0c-2.67,2.67-7.01,2.67-9.68,0L29.44,135.94l-4.84-4.84c-2.67-2.67-2.67-7.01,0-9.68l4.84-4.84L121.41,24.6c2.67-2.67,7.01-2.67,9.68,0Z"/>
+          </svg>        
+        </h1>
+        <h1 class="month-year-span">
+          ${this.month}
+          - 
+          ${this.year}
+        </h1>
+        <h1 class="monthIncrease">
+          <svg height="21" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.69 252.51">
+            <defs>
+              <style>
+                .cls-1 {
+                  stroke-width: 0px;
+                  fill: white;
+                }
+              </style>
+            </defs>
+            <path class="cls-1" d="m126.26,93.98L34.28,2.01c-2.67-2.67-7.01-2.67-9.68,0L2.01,24.6c-2.67,2.67-2.67,7.01,0,9.68l87.14,87.14c2.67,2.67,2.67,7.01,0,9.68L2.01,218.23c-2.67,2.67-2.67,7.01,0,9.68l22.59,22.59c2.67,2.67,7.01,2.67,9.68,0l91.98-91.98,27.43-27.43c2.67-2.67,2.67-7.01,0-9.68l-27.43-27.43ZM24.6,227.91h0c-2.67-2.67-2.67-7.01,0-9.68l87.14-87.14c2.67-2.67,2.67-7.01,0-9.68L24.6,34.28c-2.67-2.67-2.67-7.01,0-9.68h0c2.67-2.67,7.01-2.67,9.68,0l91.98,91.98,4.84,4.84c2.67,2.67,2.67,7.01,0,9.68l-4.84,4.84-91.98,91.98c-2.67,2.67-7.01,2.67-9.68,0Z"/>
+          </svg>        
       </h1>
       </div>
     `;
