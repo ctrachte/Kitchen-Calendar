@@ -11,6 +11,7 @@
     <title>Kitchen Calendar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="/util/dayjs.js"></script>
+    <script src="/util/icsToJson.js"></script>
     <script src="/kitchenCalendar.js"></script>
     <link rel="stylesheet" href="/kitchenCalendar.css" />
 </head>
@@ -18,10 +19,18 @@
 <body>
 </body>
 <script>
+    const GetData = async (fileLocation) => {
+	const icsRes = await fetch(fileLocation)
+	const icsData = await icsRes.text()
+	// Convert
+	const data = icsToJson(icsData)
+	return await data;
+}
     const calendar = new KitchenCalendar({
         containerElement: document.querySelector('body'),
-        data:[]
+        data:GetData('/data/appointment-test.ics')
     });
+
 </script>
 
 </html>

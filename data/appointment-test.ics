@@ -1,0 +1,165 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:PUBLISH
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Central Standard Time
+BEGIN:STANDARD
+DTSTART:16011104T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010311T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20231003T210713Z
+DESCRIPTION:\n------------\nFrom: Red River For \n\nAPPOINTM
+	ENT CONFIRMATION\n\n 	 \nHello Caleb\, 	\n 	 \nThank you for takin
+	g the time to schedule your service appointment in advance. 	\n 	 \nFor yo
+	ur convenience you can add this appointment time to your calendar using th
+	e attached file\, if present\, or by clicking the button below: 	\n 	 \nAd
+	d to Calendar 	\n 	 \n\nAPPOINTMENT DETAILS\n\nConfirmation Code: 23ghwe43626
+	EV 	\nDate and Time: Sep 25\, 2023 4:00:00 PM 	\nVehicle: 2016 MAZDA CX-3 
+		 Services: \nLOF\,ROTATE AND MPI RESET OIL LIFE 	\n 	 \nDid 
+	you know that you can manage your appointment online? Click the button bel
+	ow to make adjustments to your reservation\, or you can reach us at xxx-xxx-xxxx
+	. 	\n 	 \nManage Service 	\n 	 \nWe look forward to providing you 
+	with the highest level of service. 	\n 	 \nSincerely\, 	\n 	 \nRED RIVER F
+	ORD\n\nWebsite  |  Map to Dealer 	\n 	 \n 	 \n 	  	  	 \n 	 Repair time
+	s and costs vary based upon the nature of the repair\, parts availability\
+	, your warranty status\, and other factors. Once your vehicle is in the sh
+	op\, we will diagnose your problem and contact you as soon as we can to pr
+	ovide details and specific time and cost estimate. Diagnostic and/or repai
+	r fees may apply if work to be performed is not covered under warranty. \n
+	\nPlease do not reply to this automated email. You will not receive a resp
+	onse. 
+DTEND;TZID="Central Standard Time":20230925T163000
+DTSTAMP:20231003T210713Z
+DTSTART;TZID="Central Standard Time":20230925T160000
+LAST-MODIFIED:20231003T210713Z
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=en-us:Appointment Scheduled: RED RIVER FORD appointment
+TRANSP:OPAQUE
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion 16.0.16731.20218">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted
+	 from text/rtf format -->\n<BR>\n\n<P><FONT SIZE=2 FACE="Segoe UI">-------df
+	-----</FONT>\n\n<BR><B><FONT COLOR="#000000" FACE="Calibri">From:&nbsp\;&n
+	bsp\;</FONT></B> <FONT COLOR="#000000" FACE="Calibri">Red River Ford &lt\;
+	service@redriverauto.com&gt\;</FONT>\n\n<BR><B><FONT COLOR="#000000" FACE=
+	"Calibri">Sent:&nbsp\;&nbsp\;</FONT></B> <FONT COLOR="#000000" FACE="Calib
+	ri">Friday\, September 22\, 2023 3:24 PM</FONT>\n\n<BR><B><FONT COLOR="#00
+	0000" FACE="Calibri">To:&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT></B> <FONT COLO
+	R="#000000" FACE="Calibri">cetrachte@hotmail.com</FONT>\n\n<BR><B><FONT CO
+	LOR="#000000" FACE="Calibri">Subject:&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&n
+	bsp\;&nbsp\;</FONT></B> <FONT COLOR="#000000" FACE="Calibri">Appointment S
+	cheduled: RED RIVER FORD appointment on Sep 25\, 2023 4:00:00 PM</FONT>\n\
+	n<BR><B><FONT COLOR="#000000" FACE="Calibri">Attachments:&nbsp\;&nbsp\;&nb
+	sp\;</FONT></B> <FONT COLOR="#000000" FACE="Calibri">X06BBKZXEV_en_US_Serv
+	ice_Appointments.vcs</FONT>\n</P>\n\n<P><FONT FACE="Arial">https://na01.sa
+	felinks.protection.outlook.com/?url=https%3A%2F%2Fsgelink.xtime.com%2Fss%2
+	Fc%2FRChPE04OUOIFGBu6p_DSJb-27uPX7R6wvRQPDlUryHZ4wthvOIJpcvlSjtRIseFJmKRzM
+	AT4IV3aUDcUMdK6RtXNHtE0bgM5yW8jUVcgYmU%2F3zt%2Fff0E2Y8iTC-1o7vj17DwLw%2Fh0
+	%2FElaGjOp_4IFwQk9AUSbdLs8J2GkOgr6q6e5Hw1LWSZ0&amp\;data=05%7C01%7C%7C9cd3
+	d2a5c4d84d94f22e08dbbba9ea53%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C
+	638310110704544734%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2l
+	uMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp\;sdata=czLOc4JmhGO
+	OoqpgtKqLAd4WUG0%2FJ26f%2FqAtFDOD1U4%3D&amp\;reserved=0 &nbsp\; </FONT></P
+	>\n\n<P><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nb
+	sp\;  &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n</P>\n\n<P><B><
+	FONT SIZE=6 FACE="Arial">APPOINTMENT CONFIRMATION</FONT></B>\n</P>\n\n<P><
+	FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FO
+	NT>\n\n<BR><B><FONT FACE="Arial">Hello Caleb Trachte\,</FONT></B><FONT FAC
+	E="Arial"> &nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp
+	\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial">Th
+	ank you for taking the time to schedule your service appointment in advanc
+	e.&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;
+	&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial">For your convenien
+	ce you can add this appointment time to your calendar using the attached f
+	ile\, if present\, or by clicking the button below: &nbsp\; </FONT></P>\n\
+	n<P><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;
+	 </FONT>\n\n<BR><U></U><U><FONT COLOR="#0000FF" FACE="Arial">Add to Calend
+	ar</FONT></U><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\
+	;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&
+	nbsp\;&nbsp\;&nbsp\; </FONT>\n</P>\n\n<P><B><FONT SIZE=5 FACE="Arial">APPO
+	INTMENT DETAILS</FONT></B>\n</P>\n\n<P><B><FONT FACE="Arial">Confirmation 
+	Code:</FONT></B><FONT FACE="Arial"> X06BBKZXEV &nbsp\; </FONT>\n\n<BR><B><
+	FONT FACE="Arial">Date and Time: </FONT></B><FONT FACE="Arial">Sep 25\, 2
+	023 4:00:00 PM&nbsp\; </FONT>\n\n<BR><B><FONT FACE="Arial">Vehicle:</FONT>
+	</B><FONT FACE="Arial"> 2016 MAZDA CX-3 &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\
+	;&nbsp\; </FONT>\n\n<BR><B><FONT FACE="Arial">VIN:</FONT></B><FONT FACE="A
+	rial"> JM1DKBD76G0122564&nbsp\; </FONT>\n\n<BR><B><FONT FACE="Arial">Advis
+	or:</FONT></B><FONT FACE="Arial"> Grant late night &nbsp\;&nbsp\;&nbsp\;&n
+	bsp\;&nbsp\; </FONT>\n\n<BR><B><FONT FACE="Arial">Requested Arrangement:</
+	FONT></B><FONT FACE="Arial"> Dropping off vehicle at the dealership &nbsp\
+	; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&
+	nbsp\;&nbsp\; </FONT>\n</P>\n\n<P><B><FONT SIZE=5 FACE="Arial">SELECTED SE
+	RVICES</FONT></B>\n</P>\n\n<P><B><FONT FACE="Arial">Maintenance Services:<
+	/FONT></B><FONT FACE="Arial"><BR>\nLOF\,ROTATE AND MPI RESET OIL LIFE &nbs
+	p\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\
+	;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Ari
+	al">Did you know that you can manage your appointment online? Click the bu
+	tton below to make adjustments to your reservation\, or you can reach us a
+	t</FONT><B> <FONT FACE="Arial">(501) 843-3536</FONT></B><FONT FACE="Arial"
+	>. &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT></P>\n\n<P><FONT FACE
+	="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<B
+	R><U></U><U><FONT COLOR="#0000FF" FACE="Arial">Manage Service</FONT></U><F
+	ONT FACE="Arial">&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\
+	;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial">We 
+	look forward to providing you with the highest level of service. &nbsp\;&n
+	bsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbs
+	p\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial">Sincerely\, &nb
+	sp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp
+	\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><B><FONT FACE="Arial"
+	>RED RIVER FORD</FONT></B><BR>\n<FONT FACE="Arial">2040 W Main St<BR>\nCab
+	ot\, Arkansas 72023-2433<BR>\n</FONT><A HREF="tel:5018433536"><U></U><U><F
+	ONT COLOR="#0000FF" FACE="Arial">(501) 843-3536</FONT></U></A><BR>\n<U></U
+	><U><FONT COLOR="#0000FF" FACE="Arial">Website</FONT></U><FONT FACE="Arial
+	">  </FONT><B><FONT FACE="Arial">|</FONT></B><FONT FACE="Arial">  <U><
+	/U><U></U></FONT><U><FONT COLOR="#0000FF" FACE="Arial">Map to Dealer</FONT
+	></U><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<B
+	R><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; <
+	/FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbs
+	p\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp\
+	;&nbsp\;&nbsp\;&nbsp\;  &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;  &nbs
+	p\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial">
+	 &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; Repair times and costs
+	 vary based upon the nature of the repair\, parts availability\, your warr
+	anty status\, and other factors. Once your vehicle is in the shop\, we wil
+	l diagnose your problem and contact you as soon as we can to provide detai
+	ls and specific time and cost estimate. Diagnostic and/or repair fees may 
+	apply if work to be performed is not covered under warranty.<BR>\n<BR>\nPl
+	ease do not reply to this automated email. You will not receive a response
+	.<U></U><U> </U></FONT><U><FONT COLOR="#0000FF" FACE="Arial">Click here</F
+	ONT></U><FONT FACE="Arial"> to manage your profile and privacy preferences
+	.<BR>\n<BR>\nTo unsubscribe from this email\, </FONT><A HREF="https://na01
+	.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsgelink.xtime.com%2Fs
+	s%2Fsu%2FEw86R5ntBOIXMrdJ9wgbQw%2F3zt%2Fff0E2Y8iTC-1o7vj17DwLw%2Fuh%2FxFw_
+	mKYoZ8D2THaAv6GqPRV2skwba4Z0L3jxfov-PL8&amp\;data=05%7C01%7C%7C9cd3d2a5c4d
+	84d94f22e08dbbba9ea53%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6383101
+	10704544734%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC
+	JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp\;sdata=WGGDPkb7II%2FeL3rR
+	lmMXsSTd2oN5sPDlLKNlnVhnlfA%3D&amp\;reserved=0"><U></U><U><FONT COLOR="#00
+	00FF" FACE="Arial">click here</FONT></U></A><FONT FACE="Arial">.<BR>\n<BR>
+	\nSep 22\, 2023\, 03:24 PM&nbsp\;  &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nb
+	sp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial"> &nbsp\;&nbsp\;&nbsp\;&nbsp
+	\;&nbsp\;&nbsp\;&nbsp\;  &nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;  &nb
+	sp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\; </FONT>\n\n<BR><FONT FACE="Arial">
+	&nbsp\;<A HREF="https://sgelink.xtime.com/ss/o/Ew86R5ntBOIXMrdJ9wgbQw/3zt/
+	ff0E2Y8iTC-1o7vj17DwLw/ho.gif">https://sgelink.xtime.com/ss/o/Ew86R5ntBOIX
+	MrdJ9wgbQw/3zt/ff0E2Y8iTC-1o7vj17DwLw/ho.gif</A></FONT>\n</P>\n<BR>\n\n</B
+	ODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-CONFTYPE:0
+END:VEVENT
+END:VCALENDAR
