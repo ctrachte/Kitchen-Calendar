@@ -86,7 +86,7 @@ class KitchenCalendar {
         dayCell.classList.add("leading-trailing-day");
         dayCell.classList.add("calendar-border-wrap");
         dayCell.innerHTML = parseInt(this.trailing[i] + 1) + 1;
-        dayCell.setAttribute("aria-label", parseInt(this.trailing[i]) + 1);
+        dayCell.setAttribute("aria-label", parseInt(this.trailing[i]+1) + 1);
         if (i === 0) {
           dayCell.classList.add("grid-column-start:0;");
         }
