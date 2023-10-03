@@ -21,7 +21,7 @@ git clone https://github.com/ctrachte/KitchenCalendar.js
 2. Using VSCode's live server, open `index.html` in your browser of choice to view and test behavior.
 3. Adjust the options as necessary for your needs, be sure to supply the KitchenCalendar options with the appropriate container HTML element node.
 
-### Using NPM (React, Next.js)
+### Using NPM (React, Next.js) *This will be available once the first version is published to NPM*
 1. Install the npm package:
 ```
 npm i --save KitchenCalendar
@@ -33,9 +33,8 @@ npm i --save KitchenCalendar
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1.) You will first need a recent version of Moment.js installed. 
+1.) You will first need a recent version of day.js installed. 
  - You can use the one included in the helpers folder of this project *  _*RECOMMENDED*_ *
- -  or download the latest version from [their website](https://momentjs.com/).
 
 2.) Download and add the KitchenCalendar.js and KitchenCalendar.css files to their appropriate directories in your project.
  - you will need to reference them in your project in a way that they are in scope to the code you are initializing the KitchenCalendar with.  
