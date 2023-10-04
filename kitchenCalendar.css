@@ -21,7 +21,7 @@
     align-items: center;
     background: #222;
     display: grid;
-    grid-template-columns: 14.2857% 14.2857% 14.2857% 14.2857% 14.2857% 14.2857% 14.2857%;
+    grid-template-columns: repeat(7, minmax(0, 1fr));    
     color: white;
     border-radius: 0px 0px 5px 5px;
     padding: 1rem;
