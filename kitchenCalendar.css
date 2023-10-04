@@ -30,6 +30,10 @@
     height: 100%;
 }
 
+.leading-trailing-day {
+    opacity:.3;
+}
+
 .CalendarHeader > h1 {
     text-align: center;
 }
@@ -45,8 +49,6 @@ svg:hover {
 .day {
     background: #222;
     color: white;
-    padding: 2rem;
-    text-align: center;
 }
 
 .day:hover {
