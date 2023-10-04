@@ -9,12 +9,11 @@
     align-items: center;
     justify-content: stretch;
     background: #222;
-    display: grid;
+    display: flex;
     padding: 1rem;
     width: 100%;
     color: white;
     border-radius: 5px 5px 0px 0px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .daysContainer {
@@ -31,8 +30,28 @@
 }
 
 .CalendarHeader > h1 {
-    text-align: center;
 }
+
+.monthDecrease {
+    text-align: right;
+    flex-grow: 1;
+}
+
+.monthIncrease {
+    flex-grow: 1;
+}
+
+.header-month {
+    min-width: 12rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.header-year {
+    min-width: 12rem;
+    padding-left: 1rem;
+}
+
 
 svg:hover {
     cursor: pointer;
