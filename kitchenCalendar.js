@@ -4,11 +4,13 @@ class KitchenCalendar {
       options.containerElement || document.createElement("div");
     this.containerElement.classList.add("KitchenCalendarContainer");
     this.date = dayjs(new Date());
+    this.data = options.data;
     this.reset();
-    this.initialize();
   }
   async initialize() {
     // testing dayjs
+    this.data = await this.data;
+    this.parseEvents();
     this.container = document.createElement("div");
     this.container.classList.add("daysContainer");
     this.header = `
@@ -60,11 +62,16 @@ class KitchenCalendar {
     this.addLeadingTrailing();
   }
   addDayElements() {
+    this.days = [];
     for (let i = 1; i < this.daysInMonth + 1; i++) {
       let day = document.createElement("div");
+      let date =  dayjs(this.month + "-" + i + "-" + this.year).format('MM-DD-YYYY')
       day.classList.add("calendar-border-wrap");
-      day.innerHTML = `<div class='day day-${1}'>${i}</div>`;
+      day.innerHTML = `<div class='dayNumber'>${i}</div>`;
+      day.classList.add('day', date);
       this.container.appendChild(day);
+      day.value = date;
+      this.days.push(day)
     }
   }
   // gets leading/trailing dates for calendar UI
@@ -95,7 +102,7 @@ class KitchenCalendar {
       1;
     //add last months trailing days to calendar
     if (this.trailing) {
-      this.trailing.reverse();
+      this.trailingDays = [];
       for (let i = firstDayPos - 1; i > 0; i--) {
         let dayCell = document.createElement("div");
         dayCell.classList.add(
@@ -103,13 +110,17 @@ class KitchenCalendar {
         );
         dayCell.classList.add("leading-trailing-day");
         dayCell.classList.add("calendar-border-wrap");
-        dayCell.innerHTML = parseInt(this.trailing[i] + 1) + 1;
+        dayCell.innerHTML = parseInt(this.trailing[i]) + 1;
         dayCell.setAttribute("aria-label", parseInt(this.trailing[i]) + 1);
         if (i === 0) {
           dayCell.classList.add("grid-column-start:0;");
         }
-        this.container.prepend(dayCell);
+        this.trailingDays.push(dayCell);
       }
+      this.trailingDays.reverse();
+      this.trailingDays.forEach((dayCell) => {
+        this.container.prepend(dayCell);
+      });
     }
     // add next months leading days to calendar.
     if (this.leading) {
@@ -166,5 +177,26 @@ class KitchenCalendar {
   refresh() {}
   async getData() {}
   openEvent() {}
-  validate(App) {}
+  async parseEvents() {
+    this.data = await this.data;
+    this.data.map((event) => {
+      event.startDate = dayjs(event.startDate);
+      event.endDate = dayjs(event.endDate);
+      event.singleDate = event.startDate.isSame(event.endDate, 'day');
+      if (this.month === event.endDate.format("MMMM") || this.month === event.startDate.format("MMMM")) {
+        this.loadEvent(event);
+      }
+    });
+  }
+  loadEvent(eventJson) {
+    let calendarDayElement = this.days.filter(day => day.value === eventJson.startDate.format('MM-DD-YYYY'))[0];
+    let event = document.createElement('div');
+    event.classList.add('event', 'calendar-border-wrap');
+    event.title = eventJson.description + " - " + 
+      eventJson.startDate.format('MM/DD/YYYY hh:mm A') + " - " + 
+      eventJson.endDate.format('MM/DD/YYYY hh:mm A');
+    event.value = JSON.stringify(eventJson);
+    event.innerHTML = eventJson.summary;
+    calendarDayElement.appendChild(event);
+  }
 }
