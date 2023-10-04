@@ -104,7 +104,7 @@ class KitchenCalendar {
       1;
     //add last months trailing days to calendar
     if (this.trailing) {
-      this.trailing.reverse();
+      this.trailingDays = [];
       for (let i = firstDayPos - 1; i > 0; i--) {
         let dayCell = document.createElement("div");
         dayCell.classList.add(
@@ -112,13 +112,17 @@ class KitchenCalendar {
         );
         dayCell.classList.add("leading-trailing-day");
         dayCell.classList.add("calendar-border-wrap");
-        dayCell.innerHTML = parseInt(this.trailing[i] + 1) + 1;
-        dayCell.setAttribute("aria-label", parseInt(this.trailing[i]+1) + 1);
+        dayCell.innerHTML = parseInt(this.trailing[i]) + 1;
+        dayCell.setAttribute("aria-label", parseInt(this.trailing[i]) + 1);
         if (i === 0) {
           dayCell.classList.add("grid-column-start:0;");
         }
-        this.container.prepend(dayCell);
+        this.trailingDays.push(dayCell);
       }
+      this.trailingDays.reverse();
+      this.trailingDays.forEach((dayCell) => {
+        this.container.prepend(dayCell);
+      });
     }
     // add next months leading days to calendar.
     if (this.leading) {
