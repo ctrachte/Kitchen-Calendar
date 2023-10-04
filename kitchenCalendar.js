@@ -10,7 +10,7 @@ class KitchenCalendar {
   }
   async initialize() {
     // testing dayjs
-    this.data = await this.data;
+    this.parseEvents();
     this.container = document.createElement("div");
     this.container.classList.add("daysContainer");
     this.header = `
@@ -170,5 +170,18 @@ class KitchenCalendar {
   refresh() {}
   async getData() {}
   openEvent() {}
-  validate(App) {}
+  async parseEvents() {
+    this.data = await this.data;
+    this.data.map((event) => {
+      event.startDate = dayjs(event.startDate);
+      event.endDate = dayjs(event.endDate);
+      event.singleDate = event.startDate.isSame(event.endDate, 'day');
+      if (this.month === event.endDate.format("MMMM") || this.month === event.startDate.format("MMMM")) {
+        this.loadEvent(event);
+      }
+    });
+  }
+  loadEvent(eventJson) {
+    console.log(eventJson, 'this event should be loaded for this month')
+  }
 }
