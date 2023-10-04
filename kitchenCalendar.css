@@ -45,8 +45,6 @@ svg:hover {
 .day {
     background: #222;
     color: white;
-    padding: 2rem;
-    text-align: center;
 }
 
 .day:hover {

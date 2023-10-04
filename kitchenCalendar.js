@@ -64,11 +64,16 @@ class KitchenCalendar {
     this.addLeadingTrailing();
   }
   addDayElements() {
+    this.days = [];
     for (let i = 1; i < this.daysInMonth + 1; i++) {
       let day = document.createElement("div");
+      let date =  dayjs(this.month + "-" + i + "-" + this.year).format('MM-DD-YYYY')
       day.classList.add("calendar-border-wrap");
-      day.innerHTML = `<div class='day day-${1}'>${i}</div>`;
+      day.innerHTML = `<div class='dayNumber'>${i}</div>`;
+      day.classList.add('day', date);
       this.container.appendChild(day);
+      day.value = date;
+      this.days.push(day)
     }
   }
   // gets leading/trailing dates for calendar UI
@@ -182,6 +187,11 @@ class KitchenCalendar {
     });
   }
   loadEvent(eventJson) {
-    console.log(eventJson, 'this event should be loaded for this month')
+    let calendarDayElement = this.days.filter(day => day.value === eventJson.startDate.format('MM-DD-YYYY'))[0];
+    let event = document.createElement('div');
+    event.classList.add('event', 'calendar-border-wrap');
+    event.value = JSON.stringify(eventJson);
+    event.innerHTML = eventJson.summary;
+    calendarDayElement.appendChild(event);
   }
 }
