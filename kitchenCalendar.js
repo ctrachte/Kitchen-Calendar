@@ -6,10 +6,10 @@ class KitchenCalendar {
     this.date = dayjs(new Date());
     this.data = options.data;
     this.reset();
-    this.initialize();
   }
   async initialize() {
     // testing dayjs
+    this.data = await this.data;
     this.parseEvents();
     this.container = document.createElement("div");
     this.container.classList.add("daysContainer");
@@ -194,6 +194,9 @@ class KitchenCalendar {
     let calendarDayElement = this.days.filter(day => day.value === eventJson.startDate.format('MM-DD-YYYY'))[0];
     let event = document.createElement('div');
     event.classList.add('event', 'calendar-border-wrap');
+    event.title = eventJson.description + " - " + 
+      eventJson.startDate.format('MM/DD/YYYY hh:mm A') + " - " + 
+      eventJson.endDate.format('MM/DD/YYYY hh:mm A');
     event.value = JSON.stringify(eventJson);
     event.innerHTML = eventJson.summary;
     calendarDayElement.appendChild(event);

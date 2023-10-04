@@ -32,6 +32,8 @@
 
 .leading-trailing-day {
     opacity:.3;
+    min-width: 96px;
+    min-height: 96px;
 }
 
 .CalendarHeader > h1 {
@@ -46,14 +48,29 @@ svg:hover {
     border: solid 1px grey;
 }
 
+.day::-webkit-scrollbar {
+    display: none;
+  }
 .day {
     background: #222;
     color: white;
+    max-height: 2rem;
+    min-width: 96px;
+    min-height: 96px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    overflow: auto;
 }
 
-.day:hover {
+.event:hover {
     cursor: pointer;
     opacity: 0.5;
+    color:white;
+    background-color: darkgrey;
+}
+.event {
+    background-color: darkgrey;
+    color:black;
 }
 
 body {

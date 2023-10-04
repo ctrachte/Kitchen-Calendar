@@ -19,16 +19,27 @@
 <body>
 </body>
 <script>
-    const GetData = async (fileLocation) => {
-	const icsRes = await fetch(fileLocation)
-	const icsData = await icsRes.text()
-	// Convert
-	const data = icsToJson(icsData)
-	return await data;
-}
+    const GetData = async (fileLocation) =>
+    {
+        const icsRes = await fetch(fileLocation)
+        const contentType = icsRes.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1)
+        {
+            return await icsRes.json().then(data =>
+            {
+                return data;
+            });
+        } else
+        {
+            return await icsRes.text().then(text =>
+            {
+                return icsToJson(icsData);
+            });
+        }
+    }
     const calendar = new KitchenCalendar({
         containerElement: document.querySelector('body'),
-        data:GetData('/data/appointment-test.ics')
+        data: GetData('/data/data.json')
     });
 
 </script>
