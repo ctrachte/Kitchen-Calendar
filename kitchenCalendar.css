@@ -30,6 +30,10 @@
     height: 100%;
 }
 
+.leading-trailing-day {
+    opacity:.3;
+}
+
 .CalendarHeader > h1 {
     text-align: center;
 }
