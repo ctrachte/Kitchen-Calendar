@@ -2,6 +2,7 @@
     display: flex;
     margin:5rem;
     flex-wrap: wrap;
+    min-width: 800px;
 }
 
 .CalendarHeader {
@@ -21,7 +22,7 @@
     align-items: center;
     background: #222;
     display: grid;
-    grid-template-columns: 14.2857% 14.2857% 14.2857% 14.2857% 14.2857% 14.2857% 14.2857%;
+    grid-template-columns: repeat(7, minmax(0, 1fr));    
     color: white;
     border-radius: 0px 0px 5px 5px;
     padding: 1rem;
@@ -31,8 +32,10 @@
 
 .leading-trailing-day {
     opacity:.3;
-    min-width: 96px;
-    min-height: 96px;
+    /* min-width: 96px;
+    min-height: 96px; */
+    position: relative;
+    padding-top: 100%;
 }
 
 .CalendarHeader > h1 {
@@ -71,14 +74,20 @@ svg:hover {
     display: none;
   }
 .day {
+    padding-top: 100%;
+    position: relative;
     background: #222;
     color: white;
     max-height: 2rem;
-    min-width: 96px;
-    min-height: 96px;
+    /* min-width: 96px; */
+    /* min-height: 96px; */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     overflow: auto;
+}
+.dayNumber {
+    position: absolute;
+    top: 0;
 }
 
 .event:hover {
@@ -90,6 +99,9 @@ svg:hover {
 .event {
     background-color: darkgrey;
     color:black;
+    position:absolute;
+    top: 2rem;
+    left: 1rem;
 }
 
 body {
