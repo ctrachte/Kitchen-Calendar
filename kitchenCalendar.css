@@ -101,9 +101,17 @@ svg:hover {
     color:black;
     position:absolute;
     top: 2rem;
-    left: 1rem;
+    width: 100%;
 }
 
+.event-start {
+    left: 1rem;
+    width:auto !important;
+}
+.event-end {
+    right: 1rem;
+    width: auto !important;;
+}
 body {
     align-items: center;
     display: flex;

@@ -182,19 +182,38 @@ class KitchenCalendar {
     this.data.map((event) => {
       event.startDate = dayjs(event.startDate);
       event.endDate = dayjs(event.endDate);
-      event.singleDate = event.startDate.isSame(event.endDate, 'day');
+      event.startDateText = dayjs(event.startDate).format('MM-DD-YYYY hh:mm A');
+      event.endDateText = dayjs(event.endDate).format('MM-DD-YYYY hh:mm A');
+      event.singleDate = event.startDate.isSame(event.endDate, 'date');
       if (this.month === event.endDate.format("MMMM") || this.month === event.startDate.format("MMMM")) {
         this.loadEvent(event);
       }
     });
   }
   loadEvent(eventJson) {
-    let calendarDayElement = this.days.filter(day => day.value === eventJson.startDate.format('MM-DD-YYYY'))[0];
+      let diff = Math.abs(eventJson.startDate.diff(eventJson.endDate, "day"));
+      eventJson.dates = [];
+      eventJson.dates.push(eventJson.startDate);
+      for (let i = 1; i <= diff; i++) {
+        eventJson.dates.push(eventJson.startDate.add(i, "day"));
+      }
+      eventJson.dates.push(eventJson.endDate);
+      if (eventJson.startDate.isSame(eventJson.endDate, "day")) eventJson.dates = [eventJson.startDate];
+      eventJson.dates.forEach((day, index) => {
+        let newEvent = structuredClone(eventJson);
+        newEvent.day = dayjs(day).format("MM-DD-YYYY");
+        newEvent.start = eventJson.startDate.format('MM-DD-YYYY');
+        newEvent.end = eventJson.endDate.format('MM-DD-YYYY')
+        this.addToCalendar(newEvent, index);
+      });
+  }
+  addToCalendar(eventJson, index) {
+    let calendarDayElement = this.days.filter(day => day.value === eventJson.day)[0];
     let event = document.createElement('div');
     event.classList.add('event', 'calendar-border-wrap');
-    event.title = eventJson.description + " - " + 
-      eventJson.startDate.format('MM/DD/YYYY hh:mm A') + " - " + 
-      eventJson.endDate.format('MM/DD/YYYY hh:mm A');
+    if (eventJson.start === (eventJson.day)) event.classList.add('event-start');
+    if (eventJson.end === (eventJson.day)) event.classList.add('event-end');
+    event.title = eventJson.description + " - " + eventJson.startDateText + " - " + eventJson.endDateText;
     event.value = JSON.stringify(eventJson);
     event.innerHTML = eventJson.summary;
     calendarDayElement.appendChild(event);
