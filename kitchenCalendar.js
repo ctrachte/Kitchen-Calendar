@@ -177,6 +177,11 @@ class KitchenCalendar {
   refresh() {}
   async getData() {}
   openEvent() {}
+  rankSameDayEvents(arrayOfEvents) {
+    // 1. initial ranking is directly related to length of the event, by day
+    // Longest is first, shortest is last.
+    // less than one day events should be ranked by when they start. 
+  }
   async parseEvents() {
     this.data = await this.data;
     this.data.map((event) => {
