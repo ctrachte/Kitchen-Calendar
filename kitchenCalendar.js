@@ -194,6 +194,7 @@ class KitchenCalendar {
       let diff = Math.abs(eventJson.startDate.diff(eventJson.endDate, "day"));
       eventJson.dates = [];
       eventJson.dates.push(eventJson.startDate);
+      eventJson.color = random_rgba();
       for (let i = 1; i <= diff; i++) {
         eventJson.dates.push(eventJson.startDate.add(i, "day"));
       }
@@ -203,7 +204,7 @@ class KitchenCalendar {
         let newEvent = structuredClone(eventJson);
         newEvent.day = dayjs(day).format("MM-DD-YYYY");
         newEvent.start = eventJson.startDate.format('MM-DD-YYYY');
-        newEvent.end = eventJson.endDate.format('MM-DD-YYYY')
+        newEvent.end = eventJson.endDate.format('MM-DD-YYYY');
         this.addToCalendar(newEvent, index);
       });
   }
@@ -211,6 +212,7 @@ class KitchenCalendar {
     let calendarDayElement = this.days.filter(day => day.value === eventJson.day)[0];
     let event = document.createElement('div');
     event.classList.add('event', 'calendar-border-wrap');
+    event.style.backgroundColor = eventJson.color;
     if (eventJson.start === (eventJson.day)) event.classList.add('event-start');
     if (eventJson.end === (eventJson.day)) event.classList.add('event-end');
     event.title = eventJson.description + " - " + eventJson.startDateText + " - " + eventJson.endDateText;
@@ -218,4 +220,9 @@ class KitchenCalendar {
     event.innerHTML = eventJson.summary;
     calendarDayElement.appendChild(event);
   }
+}
+
+function random_rgba() {
+  var o = Math.round, r = Math.random, s = 255;
+  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
