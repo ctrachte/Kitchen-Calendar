@@ -65,10 +65,15 @@ class KitchenCalendar {
     this.days = [];
     for (let i = 1; i < this.daysInMonth + 1; i++) {
       let day = document.createElement("div");
-      let date =  dayjs(this.month + "-" + i + "-" + this.year).format('MM-DD-YYYY')
-      day.classList.add("calendar-border-wrap");
-      day.innerHTML = `<div class='dayNumber'>${i}</div>`;
-      day.classList.add('day', date);
+      let date =  dayjs(this.month + "-" + i + "-" + this.year).format('MM-DD-YYYY');
+      let KCDay = new KitchenCalendarDay({
+        element: day,
+        date: date,
+        dayNumber: i
+      });
+      //day.classList.add("calendar-border-wrap");
+      //day.innerHTML = `<div class='dayNumber'>${i}</div>`;
+      //day.classList.add('day', date);
       this.container.appendChild(day);
       day.value = date;
       this.days.push(day)
@@ -110,7 +115,7 @@ class KitchenCalendar {
         );
         dayCell.classList.add("leading-trailing-day");
         dayCell.classList.add("calendar-border-wrap");
-        dayCell.innerHTML = parseInt(this.trailing[i]) + 1;
+        dayCell.innerHTML = `<div class="slot0 dayNumber">${parseInt(this.trailing[i]) + 1}</div>`;
         dayCell.setAttribute("aria-label", parseInt(this.trailing[i]) + 1);
         if (i === 0) {
           dayCell.classList.add("grid-column-start:0;");
@@ -129,7 +134,7 @@ class KitchenCalendar {
         dayCell.classList.add("next-month-day-" + i);
         dayCell.classList.add("leading-trailing-day");
         dayCell.classList.add("calendar-border-wrap");
-        dayCell.innerHTML = i;
+        dayCell.innerHTML = `<div class="slot0 dayNumber">${i}</div>`;
         dayCell.setAttribute("aria-label", "day-" + i + "-next-month");
         if (i === 0) {
           dayCell.classList.add("grid-column-start:" + lastDayPos + ";");
@@ -216,7 +221,7 @@ class KitchenCalendar {
   addToCalendar(eventJson, index) {
     let calendarDayElement = this.days.filter(day => day.value === eventJson.day)[0];
     let event = document.createElement('div');
-    event.classList.add('event', 'calendar-border-wrap');
+    event.classList.add('event', 'calendar-border-wrap', 'slot1');
     event.style.backgroundColor = eventJson.color;
     if (eventJson.start === (eventJson.day)) event.classList.add('event-start');
     if (eventJson.end === (eventJson.day)) event.classList.add('event-end');

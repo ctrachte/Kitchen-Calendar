@@ -32,9 +32,6 @@
 
 .leading-trailing-day {
     opacity:.3;
-    /* min-width: 96px;
-    min-height: 96px; */
-    position: relative;
     padding-top: 100%;
 }
 
@@ -68,6 +65,8 @@ svg:hover {
 
 .calendar-border-wrap {
     border: solid 1px grey;
+    position: relative;
+    top: 0;
 }
 
 .day::-webkit-scrollbar {
@@ -75,7 +74,6 @@ svg:hover {
   }
 .day {
     padding-top: 100%;
-    position: relative;
     background: #222;
     color: white;
     max-height: 2rem;
@@ -86,8 +84,23 @@ svg:hover {
     overflow: auto;
 }
 .dayNumber {
+    padding-left: 0.25rem;
+}
+.slot0 {
     position: absolute;
-    top: 0;
+    top: 0.25rem;
+}
+
+.slot1 {
+    position: absolute;
+    top: 1.5rem;
+    text-wrap: nowrap;
+}
+
+.slot2 {
+    position: absolute;
+    top: 3rem;
+    text-wrap: nowrap;
 }
 
 .event:hover {
@@ -99,8 +112,6 @@ svg:hover {
 .event {
     background-color: darkgrey;
     color:black;
-    position:absolute;
-    top: 2rem;
     width: 100%;
 }
 
