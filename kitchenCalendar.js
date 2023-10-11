@@ -65,18 +65,20 @@ class KitchenCalendar {
     this.days = [];
     for (let i = 1; i < this.daysInMonth + 1; i++) {
       let day = document.createElement("div");
-      let date =  dayjs(this.month + "-" + i + "-" + this.year).format('MM-DD-YYYY');
+      let date = dayjs(this.month + "-" + i + "-" + this.year).format(
+        "MM-DD-YYYY"
+      );
       let KCDay = new KitchenCalendarDay({
         element: day,
         date: date,
-        dayNumber: i
+        dayNumber: i,
       });
       //day.classList.add("calendar-border-wrap");
       //day.innerHTML = `<div class='dayNumber'>${i}</div>`;
       //day.classList.add('day', date);
       this.container.appendChild(day);
       day.value = date;
-      this.days.push(day)
+      this.days.push(day);
     }
   }
   // gets leading/trailing dates for calendar UI
@@ -115,7 +117,9 @@ class KitchenCalendar {
         );
         dayCell.classList.add("leading-trailing-day");
         dayCell.classList.add("calendar-border-wrap");
-        dayCell.innerHTML = `<div class="slot0 dayNumber">${parseInt(this.trailing[i]) + 1}</div>`;
+        dayCell.innerHTML = `<div class="slot0 dayNumber">${
+          parseInt(this.trailing[i]) + 1
+        }</div>`;
         dayCell.setAttribute("aria-label", parseInt(this.trailing[i]) + 1);
         if (i === 0) {
           dayCell.classList.add("grid-column-start:0;");
@@ -185,54 +189,101 @@ class KitchenCalendar {
   rankSameDayEvents(arrayOfEvents) {
     // 1. initial ranking is directly related to length of the event, by day
     // Longest is first, shortest is last.
-    // less than one day events should be ranked by when they start. 
+    // less than one day events should be ranked by when they start.
   }
   async parseEvents() {
     this.data = await this.data;
     this.data.map((event) => {
       event.startDate = dayjs(event.startDate);
       event.endDate = dayjs(event.endDate);
-      event.startDateText = dayjs(event.startDate).format('MM-DD-YYYY hh:mm A');
-      event.endDateText = dayjs(event.endDate).format('MM-DD-YYYY hh:mm A');
-      event.singleDate = event.startDate.isSame(event.endDate, 'date');
-      if (this.month === event.endDate.format("MMMM") || this.month === event.startDate.format("MMMM")) {
+      event.startDateText = dayjs(event.startDate).format("MM-DD-YYYY hh:mm A");
+      event.endDateText = dayjs(event.endDate).format("MM-DD-YYYY hh:mm A");
+      event.singleDate = event.startDate.isSame(event.endDate, "date");
+      if (
+        this.month === event.endDate.format("MMMM") ||
+        this.month === event.startDate.format("MMMM")
+      ) {
         this.loadEvent(event);
       }
     });
   }
   loadEvent(eventJson) {
-      let diff = Math.abs(eventJson.startDate.diff(eventJson.endDate, "day"));
-      eventJson.dates = [];
-      eventJson.dates.push(eventJson.startDate);
-      eventJson.color = random_rgba();
-      for (let i = 1; i <= diff; i++) {
-        eventJson.dates.push(eventJson.startDate.add(i, "day"));
-      }
-      eventJson.dates.push(eventJson.endDate);
-      if (eventJson.startDate.isSame(eventJson.endDate, "day")) eventJson.dates = [eventJson.startDate];
-      eventJson.dates.forEach((day, index) => {
-        let newEvent = structuredClone(eventJson);
-        newEvent.day = dayjs(day).format("MM-DD-YYYY");
-        newEvent.start = eventJson.startDate.format('MM-DD-YYYY');
-        newEvent.end = eventJson.endDate.format('MM-DD-YYYY');
-        this.addToCalendar(newEvent, index);
-      });
+    let diff = Math.abs(eventJson.startDate.diff(eventJson.endDate, "day"));
+    eventJson.dates = [];
+    eventJson.dates.push(eventJson.startDate);
+    eventJson.color = random_rgba();
+    for (let i = 1; i <= diff; i++) {
+      eventJson.dates.push(eventJson.startDate.add(i, "day"));
+    }
+    eventJson.dates.push(eventJson.endDate);
+    if (eventJson.startDate.isSame(eventJson.endDate, "day"))
+      eventJson.dates = [eventJson.startDate];
+    eventJson.dates.forEach((day, index) => {
+      let newEvent = structuredClone(eventJson);
+      newEvent.day = dayjs(day).format("MM-DD-YYYY");
+      newEvent.start = eventJson.startDate.format("MM-DD-YYYY");
+      newEvent.end = eventJson.endDate.format("MM-DD-YYYY");
+      this.addToCalendar(newEvent, index);
+    });
   }
   addToCalendar(eventJson, index) {
-    let calendarDayElement = this.days.filter(day => day.value === eventJson.day)[0];
-    let event = document.createElement('div');
-    event.classList.add('event', 'calendar-border-wrap', 'slot1');
+    let calendarDayElement = this.days.filter(
+      (day) => day.value === eventJson.day
+    )[0];
+    let event = document.createElement("div");
+    event.classList.add("event", "calendar-border-wrap", "slot1");
     event.style.backgroundColor = eventJson.color;
-    if (eventJson.start === (eventJson.day)) event.classList.add('event-start');
-    if (eventJson.end === (eventJson.day)) event.classList.add('event-end');
-    event.title = eventJson.description + " - " + eventJson.startDateText + " - " + eventJson.endDateText;
+    if (eventJson.start === eventJson.day) event.classList.add("event-start");
+    if (eventJson.end === eventJson.day) event.classList.add("event-end");
+    event.title =
+      eventJson.description +
+      " - " +
+      eventJson.startDateText +
+      " - " +
+      eventJson.endDateText;
     event.value = JSON.stringify(eventJson);
     event.innerHTML = eventJson.summary;
+    event.onclick = (e) => {
+      this.viewEvent(eventJson);
+    };
     calendarDayElement.appendChild(event);
+  }
+  viewEvent(event) {
+    if (this.eventForm) this.eventForm.remove();
+    this.eventForm = document.createElement("div");
+    this.eventForm.classList.add(".viewEvent");
+    Object.keys(event).map((key, i) => {
+      let meta = document.createElement("div");
+      if (typeof Object.values(event)[i] === 'string') {
+        if (key === "summary") {
+          meta = document.createElement("h1");
+          meta.innerHTML = Object.values(event)[i];
+          this.eventForm.prepend(meta);
+        } else {
+          meta.innerHTML = "<b>" + key + ":</b> " + Object.values(event)[i];
+          this.eventForm.appendChild(meta);
+        }
+        this.eventForm.style.backgroundColor = (event.color);
+        meta.classList.add(key + "-metadata");
+      }
+    });
+    this.container.appendChild(this.eventForm);
   }
 }
 
 function random_rgba() {
-  var o = Math.round, r = Math.random, s = 255;
-  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+  var o = Math.round,
+    r = Math.random,
+    s = 255;
+  return (
+    "rgba(" +
+    o(r() * s) +
+    "," +
+    o(r() * s) +
+    "," +
+    o(r() * s) +
+    "," +
+    r().toFixed(1) +
+    ")"
+  );
 }
