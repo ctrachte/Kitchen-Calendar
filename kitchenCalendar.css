@@ -123,6 +123,17 @@ svg:hover {
     right: 1rem;
     width: auto !important;;
 }
+
+.viewEvent {
+    margin:2rem;
+    width:100%;
+    display: block;
+    padding: 1rem;
+    background-color: #222;
+    color: white;
+    border-radius: 5px;
+}
+
 body {
     align-items: center;
     display: flex;

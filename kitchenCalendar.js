@@ -251,7 +251,7 @@ class KitchenCalendar {
   viewEvent(event) {
     if (this.eventForm) this.eventForm.remove();
     this.eventForm = document.createElement("div");
-    this.eventForm.classList.add(".viewEvent");
+    this.eventForm.classList.add("viewEvent");
     Object.keys(event).map((key, i) => {
       let meta = document.createElement("div");
       if (typeof Object.values(event)[i] === 'string') {
@@ -267,7 +267,7 @@ class KitchenCalendar {
         meta.classList.add(key + "-metadata");
       }
     });
-    this.container.appendChild(this.eventForm);
+    this.containerElement.appendChild(this.eventForm);
   }
 }
 
