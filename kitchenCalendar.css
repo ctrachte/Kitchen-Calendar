@@ -134,6 +134,10 @@ svg:hover {
     border-radius: 5px;
 }
 
+.meta-daterange > span {
+    font-size: 2rem;
+}
+
 body {
     align-items: center;
     display: flex;

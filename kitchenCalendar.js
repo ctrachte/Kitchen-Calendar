@@ -252,19 +252,40 @@ class KitchenCalendar {
     if (this.eventForm) this.eventForm.remove();
     this.eventForm = document.createElement("div");
     this.eventForm.classList.add("viewEvent");
+    this.eventForm.style.backgroundColor = event.color;
+    let dateRange = document.createElement('div');
+    dateRange.classList.add('meta-daterange');
     Object.keys(event).map((key, i) => {
       let meta = document.createElement("div");
-      if (typeof Object.values(event)[i] === 'string') {
-        if (key === "summary") {
-          meta = document.createElement("h1");
-          meta.innerHTML = Object.values(event)[i];
-          this.eventForm.prepend(meta);
-        } else {
-          meta.innerHTML = "<b>" + key + ":</b> " + Object.values(event)[i];
-          this.eventForm.appendChild(meta);
+      if (typeof Object.values(event)[i] === "string") {
+        switch (true) {
+          case key === "summary":
+            meta = document.createElement("h1");
+            meta.innerHTML = Object.values(event)[i];
+            this.eventForm.prepend(meta);
+            break;
+          case key === "description":
+            meta = document.createElement("h2");
+            meta.innerHTML = Object.values(event)[i];
+            this.eventForm.appendChild(meta);
+            break;
+          case key === "endDateText":
+            meta = document.createElement("span");
+            meta.innerHTML = Object.values(event)[i];
+            dateRange.appendChild(meta);
+            break;
+          case key === "startDateText":
+            meta = document.createElement("span");
+            meta.innerHTML = Object.values(event)[i] + " " + `
+            <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(4 6)"><path d="m9.5.497 4 4.002-4 4.001"/><path d="m.5 4.5h13"/></g></svg>            `;
+            dateRange.prepend(meta);
+            break;
+          default:
+            meta.innerHTML = "<b>" + key + ":</b> " + Object.values(event)[i];
+            this.eventForm.appendChild(meta);
         }
-        this.eventForm.style.backgroundColor = (event.color);
-        meta.classList.add(key + "-metadata");
+        this.eventForm.prepend(dateRange);
+        meta.classList.add(key + "-metadata", "metadata");
       }
     });
     this.containerElement.appendChild(this.eventForm);
