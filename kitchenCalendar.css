@@ -138,6 +138,12 @@ svg:hover {
     font-size: 2rem;
 }
 
+.edit-event {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
 body {
     align-items: center;
     display: flex;
