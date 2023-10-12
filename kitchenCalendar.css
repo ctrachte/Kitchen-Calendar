@@ -144,10 +144,28 @@ svg:hover {
     justify-content: right;
 }
 
+@media screen  {
+    
+}
 body {
     align-items: center;
     display: flex;
     justify-content: center;
     margin: 0;
-    background: linear-gradient(to right, rgb(180, 0, 0), purple);
 }
+@media screen and (max-width: 700px) {
+    body {
+      background-color: rgb(155, 155, 155) !important;
+    }
+  }
+  @media screen and (min-width: 700px) {
+    body {
+        background: linear-gradient(to bottom, rgb(180, 0, 0), rgba(219,33,15,0.5));
+    }
+  }
+
+  @media screen and (max-height: 800px) {
+    body {
+      background-color: rgb(155, 155, 155) !important;
+    }
+  }
