@@ -3,6 +3,7 @@
     margin:5rem;
     flex-wrap: wrap;
     min-width: 800px;
+    height: 100%;
 }
 
 .CalendarHeader {
@@ -123,10 +124,50 @@ svg:hover {
     right: 1rem;
     width: auto !important;;
 }
+
+.viewEvent {
+    margin:2rem;
+    width:100%;
+    display: block;
+    padding: 1rem;
+    background-color: #222;
+    color: white;
+    border-radius: 5px;
+}
+
+.meta-daterange > span {
+    font-size: 2rem;
+}
+
+.edit-event {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+@media screen  {
+    
+}
 body {
     align-items: center;
     display: flex;
     justify-content: center;
     margin: 0;
-    background: linear-gradient(to right, rgb(180, 0, 0), purple);
+    height: 100% !important;
 }
+@media screen and (max-width: 700px) {
+    body {
+      background-color: rgb(155, 155, 155) !important;
+    }
+  }
+  @media screen and (min-width: 700px) {
+    body {
+        background: linear-gradient(to bottom,rgba(156,33,82,0.6), rgba(219,33,15,0.5));
+    }
+  }
+
+  @media screen and (max-height: 800px) {
+    body {
+      background-color: rgb(155, 155, 155) !important;
+    }
+  }
