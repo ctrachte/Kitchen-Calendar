@@ -200,8 +200,10 @@ class KitchenCalendar {
       event.endDateText = dayjs(event.endDate).format("MM-DD-YYYY hh:mm A");
       event.singleDate = event.startDate.isSame(event.endDate, "date");
       if (
-        this.month === event.endDate.format("MMMM") ||
-        this.month === event.startDate.format("MMMM")
+        (this.month === event.endDate.format("MMMM") ||
+          this.month === event.startDate.format("MMMM")) &&
+        (this.year === event.endDate.format("YYYY") ||
+          this.year === event.startDate.format("YYYY"))
       ) {
         this.loadEvent(event);
       }
@@ -253,17 +255,17 @@ class KitchenCalendar {
     this.eventForm = document.createElement("div");
     this.eventForm.classList.add("viewEvent");
     this.eventForm.style.backgroundColor = event.color;
-    let edit = document.createElement('span');
-    edit.classList.add('edit-event')
+    let edit = document.createElement("span");
+    edit.classList.add("edit-event");
     edit.innerHTML = `
       <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(3 3)"><path d="m14 1c.8284271.82842712.8284271 2.17157288 0 3l-9.5 9.5-4 1 1-3.9436508 9.5038371-9.55252193c.7829896-.78700064 2.0312313-.82943964 2.864366-.12506788z"/><path d="m12.5 3.5 1 1"/></g></svg>
     `;
-    edit.onclick = (e)=>{
+    edit.onclick = (e) => {
       //this.editView(event);
-      console.log(event)
-    }
-    let dateRange = document.createElement('div');
-    dateRange.classList.add('meta-daterange');
+      console.log(event);
+    };
+    let dateRange = document.createElement("div");
+    dateRange.classList.add("meta-daterange");
     Object.keys(event).map((key, i) => {
       let meta = document.createElement("div");
       if (typeof Object.values(event)[i] === "string") {
@@ -285,7 +287,10 @@ class KitchenCalendar {
             break;
           case key === "startDateText":
             meta = document.createElement("span");
-            meta.innerHTML = Object.values(event)[i] + " " + `
+            meta.innerHTML =
+              Object.values(event)[i] +
+              " " +
+              `
             <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(4 6)"><path d="m9.5.497 4 4.002-4 4.001"/><path d="m.5 4.5h13"/></g></svg>            `;
             dateRange.prepend(meta);
             break;
