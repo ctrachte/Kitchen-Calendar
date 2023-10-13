@@ -340,7 +340,11 @@ class KitchenCalendar {
   editEvent(e, id) {
     let el = e.target;
     let input = document.createElement("input");
-    input.setAttribute("value", el.getAttribute("value"));
+    if (el.getAttribute('type') === "date") {
+      input.value = new Date(dayjs(el.getAttribute('value')).format('yyyy-mm-dd'))
+    } else {
+      input.setAttribute("value", el.getAttribute("value"));
+    }
     input.setAttribute("id", el.id);
     input.setAttribute("name", el.getAttribute("name"));
     input.setAttribute("type", el.getAttribute("type"));
