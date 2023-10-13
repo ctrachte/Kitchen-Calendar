@@ -199,6 +199,7 @@ class KitchenCalendar {
       event.startDateText = dayjs(event.startDate).format("MM-DD-YYYY hh:mm A");
       event.endDateText = dayjs(event.endDate).format("MM-DD-YYYY hh:mm A");
       event.singleDate = event.startDate.isSame(event.endDate, "date");
+      if (!event.id) event.id = uniqueId();
       if (
         (this.month === event.endDate.format("MMMM") ||
           this.month === event.startDate.format("MMMM")) &&
@@ -211,22 +212,27 @@ class KitchenCalendar {
   }
   loadEvent(eventJson) {
     let diff = Math.abs(eventJson.startDate.diff(eventJson.endDate, "day"));
-    eventJson.dates = [];
-    eventJson.dates.push(eventJson.startDate);
-    eventJson.color = random_rgba();
-    for (let i = 1; i <= diff; i++) {
-      eventJson.dates.push(eventJson.startDate.add(i, "day"));
+    eventJson.color = eventJson.color || random_rgba();
+    if (!eventJson.dates) {
+      eventJson.dates = [];
+      eventJson.dates.push(eventJson.startDate);
+      for (let i = 1; i <= diff; i++) {
+        eventJson.dates.push(eventJson.startDate.add(i, "day"));
+      }
+      if (eventJson.startDate.isSame(eventJson.endDate, "day"))
+        eventJson.dates = [eventJson.startDate];
+        eventJson.dates.forEach((day, index) => {
+          let newEvent = structuredClone(eventJson);
+          newEvent.day = dayjs(day).format("MM-DD-YYYY");
+          newEvent.start = eventJson.startDate.format("MM-DD-YYYY");
+          newEvent.end = eventJson.endDate.format("MM-DD-YYYY");
+          eventJson.day = dayjs(day).format("MM-DD-YYYY");
+          eventJson.start = eventJson.startDate.format("MM-DD-YYYY");
+          eventJson.end = eventJson.endDate.format("MM-DD-YYYY");
+          this.addToCalendar(newEvent, index);
+        });
+        eventJson.dates.push(eventJson.endDate);
     }
-    eventJson.dates.push(eventJson.endDate);
-    if (eventJson.startDate.isSame(eventJson.endDate, "day"))
-      eventJson.dates = [eventJson.startDate];
-    eventJson.dates.forEach((day, index) => {
-      let newEvent = structuredClone(eventJson);
-      newEvent.day = dayjs(day).format("MM-DD-YYYY");
-      newEvent.start = eventJson.startDate.format("MM-DD-YYYY");
-      newEvent.end = eventJson.endDate.format("MM-DD-YYYY");
-      this.addToCalendar(newEvent, index);
-    });
   }
   addToCalendar(eventJson, index) {
     let calendarDayElement = this.days.filter(
@@ -265,7 +271,7 @@ class KitchenCalendar {
       console.log(event);
     };
     let dateRange = document.createElement("div");
-    dateRange.classList.add("meta-daterange");
+    dateRange.classList.add("meta-daterange","event-metadata");
     Object.keys(event).map((key, i) => {
       let meta = document.createElement("div");
       if (typeof Object.values(event)[i] === "string") {
@@ -273,39 +279,94 @@ class KitchenCalendar {
           case key === "summary":
             meta = document.createElement("h1");
             meta.innerHTML = Object.values(event)[i];
+            meta.setAttribute("value", Object.values(event)[i]);
+            meta.setAttribute("name", key);
+            meta.setAttribute("type", "text");
+            meta.id = event.id;
             this.eventForm.prepend(meta);
+            break;
+          case key === "color":
+            meta = document.createElement("div");
+            meta.style.border = '1px solid';
+            meta.style.width = "max-content";
+            meta.style.padding = "5px";
+            meta.innerHTML = "Background Color";
+            meta.setAttribute("value", Object.values(event)[i].startsWith("rgb") ? RGBAToHexA(Object.values(event)[i], true) : Object.values(event)[i]);
+            meta.setAttribute("name", key);
+            meta.setAttribute("type", "color");
+            meta.id = event.id;
+            this.eventForm.appendChild(meta);
             break;
           case key === "description":
             meta = document.createElement("h2");
             meta.innerHTML = Object.values(event)[i];
+            meta.setAttribute("value", Object.values(event)[i]);
+            meta.setAttribute("name", key);
+            meta.setAttribute("type", "text");
             this.eventForm.appendChild(meta);
             break;
           case key === "endDateText":
             meta = document.createElement("span");
             meta.innerHTML = Object.values(event)[i];
+            meta.setAttribute("name", key);
+            meta.setAttribute("value", Object.values(event)[i]);
             dateRange.appendChild(meta);
+            meta.setAttribute("type", "date");
             break;
           case key === "startDateText":
             meta = document.createElement("span");
-            meta.innerHTML =
-              Object.values(event)[i] +
-              " " +
-              `
-            <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(4 6)"><path d="m9.5.497 4 4.002-4 4.001"/><path d="m.5 4.5h13"/></g></svg>            `;
+            meta.setAttribute("type", "date");
+            meta.setAttribute("name", key);
+            meta.setAttribute("value", Object.values(event)[i]);
+            meta.innerHTML = Object.values(event)[i];
             dateRange.prepend(meta);
             break;
           default:
             meta.innerHTML = "<b>" + key + ":</b> " + Object.values(event)[i];
+            meta.setAttribute("value", Object.values(event)[i]);
+            meta.setAttribute("name", key);
             this.eventForm.appendChild(meta);
         }
         this.eventForm.prepend(dateRange);
         this.eventForm.prepend(edit);
-        meta.classList.add(key + "-metadata", "metadata");
+        meta.classList.add(key + "-metadata", "event-metadata");
+        meta.addEventListener("click", (e) => {
+          this.editEvent(e, event.id);
+        });
       }
     });
     this.containerElement.appendChild(this.eventForm);
   }
+  editEvent(e, id) {
+    let el = e.target;
+    let input = document.createElement("input");
+    input.setAttribute("value", el.getAttribute("value"));
+    input.setAttribute("id", el.id);
+    input.setAttribute("name", el.getAttribute("name"));
+    input.setAttribute("type", el.getAttribute("type"));
+    input.onblur = (e) => {
+      this.saveEvent(id, input.name, input.value);
+    };
+    el.replaceWith(input);
+    input.focus();
+  }
+  async saveEvent(id, prop, val) {
+    let event = this.data.filter((event) => event.id === id)[0];
+    Object.keys(event).map((key, i) => {
+      if (key === prop) event[key] = val;
+    });
+    this.data.map((e) => {
+      if (e.id === id) e = event;
+    });
+    this.viewEvent(event);
+    // need this in config to save to API:
+    // await SaveEvents(this.data)
+  }
 }
+
+const uniqueId = () => {
+  return Date.now().toString() + "" + Math.random().toString(36);
+};
 
 function random_rgba() {
   var o = Math.round,
@@ -322,4 +383,30 @@ function random_rgba() {
     r().toFixed(1) +
     ")"
   );
+}
+
+
+function RGBAToHexA(rgba, forceRemoveAlpha = false) {
+  return "#" + rgba.replace(/^rgba?\(|\s+|\)$/g, '') // Get's rgba / rgb string values
+    .split(',') // splits them at ","
+    .filter((string, index) => !forceRemoveAlpha || index !== 3)
+    .map(string => parseFloat(string)) // Converts them to numbers
+    .map((number, index) => index === 3 ? Math.round(number * 255) : number) // Converts alpha to 255 number
+    .map(number => number.toString(16)) // Converts numbers to hex
+    .map(string => string.length === 1 ? "0" + string : string) // Adds 0 when length of one number is 1
+    .join("") // Puts the array to togehter to a string
+}
+
+function rgbtocolorinput(rgb) {
+  let numbers =  rgb.substring(5, rgb.length-1)
+  .replace(/ /g, '')
+  .split(',');
+  console.log(numbers)
+  numbers.map(num => num.length === 1 ? num = "0"+num : num);
+  if (numbers.length === 4) {
+    numbers.pop();
+  }
+  numbers = numbers.join('')
+  numbers = "#" + numbers;
+  return numbers;
 }

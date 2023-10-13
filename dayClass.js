@@ -19,6 +19,5 @@ class KitchenCalendarDay {
         this.target.appendChild(this.slot0);
         this.target.appendChild(this.slot1);
         this.target.appendChild(this.slot2);
-        console.log(this);
     }
 }
